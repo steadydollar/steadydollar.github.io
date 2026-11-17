@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="p:domain_verify" content="625e8ea63bbca6a0e2b48d6e414d4ba8"/>
+<title>Debt Snowball Calculator: Find Your Debt-Free Date (Free) | SteadyDollar</title>
+<meta name="description" content="Free debt snowball and avalanche calculator. Enter your debts and monthly payment to see your debt-free date, total interest, and which debt to pay first.">
+<link rel="canonical" href="https://steadydollar.github.io/debt-payoff-calculator/">
+<meta property="og:title" content="Debt Snowball Calculator: Find Your Debt-Free Date (Free)">
+<meta property="og:description" content="Free debt snowball and avalanche calculator. Enter your debts and monthly payment to see your debt-free date, total interest, and which debt to pay first.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://steadydollar.github.io/img/debt.jpg">
+<meta name="theme-color" content="#0b1d17">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2322c55e'/><text x='16' y='23' font-size='20' text-anchor='middle' fill='%230b1d17' font-family='Arial' font-weight='bold'>$</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Debt Snowball Calculator","url":"https://steadydollar.github.io/debt-payoff-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the debt snowball method?","acceptedAnswer":{"@type":"Answer","text":"You pay the minimum on every debt and put every extra dollar on the smallest balance. When it is paid off, its payment rolls into the next smallest, so your payment grows like a snowball."}},{"@type":"Question","name":"Is snowball or avalanche better?","acceptedAnswer":{"@type":"Answer","text":"Avalanche (highest interest first) always costs the same or less interest. Snowball (smallest balance first) gives faster early wins, which helps many people stick with the plan. The calculator shows the difference in dollars for your own debts."}},{"@type":"Question","name":"How much extra should I pay each month?","acceptedAnswer":{"@type":"Answer","text":"Any amount helps. Try adding $25, $50 and $100 in the calculator to see how many months each one saves."}}]}]}</script>
+<style>
+.calc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px;margin:28px 0}
+.calc table{width:100%;border-collapse:collapse;font-size:16px}
+.calc th{text-align:left;font-weight:700;color:var(--ink-2);padding:6px 4px;font-size:14px}
+.calc td{padding:4px}
+.calc input{width:100%;padding:10px;border:1.5px solid var(--line);border-radius:10px;font:16px var(--text);background:var(--paper)}
+.calc .row-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.calc .x{background:none;border:0;font-size:20px;cursor:pointer;color:var(--ink-2)}
+.calc label{font-weight:700}
+.calc .extra{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.calc .extra input{max-width:160px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.res .box{border-radius:16px;padding:16px;background:var(--paper)}
+.res .box.win{box-shadow:inset 0 0 0 2px var(--green)}
+.res .big{font:800 30px var(--display);display:block}
+.res ol{margin:8px 0 0;padding-left:20px;font-size:15px}
+.calc .note{font-size:14px;color:var(--ink-2);margin-top:12px}
+@media(max-width:640px){.calc{padding:14px}.calc td{padding:2px}.calc input{padding:8px 6px;font-size:15px}.res{grid-template-columns:1fr}.calc th:nth-child(4),.calc td:nth-child(4){width:30px}}
+</style>
+</head>
+<body class="article">
+<header class="top"><div class="wrap">
+<a class="logo" href="../"><span class="mark">$</span>SteadyDollar</a>
+<nav><a href="../#guides">Free guides</a><a href="../#templates">Templates</a><a href="#newsletter">Newsletter</a></nav>
+<a class="btn btn-sm" href="../#templates">Shop templates</a>
+</div></header>
+<main>
+<header class="post-hero"><div class="wrap narrow">
+<a class="back" href="../#guides">&larr; All free guides</a>
+<p class="meta"><span class="tag t-debt">📉 Debt payoff</span><span>Free tool</span><span>Nov 17, 2026</span></p>
+<h1>Debt Snowball Calculator</h1>
+<p class="lede">Enter your debts and what you can pay each month. See your debt-free date, total interest, and whether the snowball or avalanche method saves you more.</p>
+</div></header>
+<article class="wrap narrow">
+<div class="calc" id="calc">
+<table><thead><tr><th>Debt name</th><th>Balance ($)</th><th>APR (%)</th><th>Min. payment ($)</th><th></th></tr></thead><tbody id="rows"></tbody></table>
+<div class="row-actions"><button class="btn btn-sm btn-dark" type="button" id="add">+ Add debt</button></div>
+<div class="extra"><label for="extra">Extra per month ($)</label><input id="extra" type="number" min="0" step="1" value="100" inputmode="decimal"></div>
+<div class="res" id="res" aria-live="polite"></div>
+<p class="note">Estimates only. Assumes fixed rates, no new charges, and interest compounded monthly. Educational, not financial advice.</p>
+</div>
+<div class="prose">
+<h2 id="how-it-works">How the debt snowball works</h2>
+<p>Pay the minimum on every debt. Put every extra dollar on the <strong>smallest balance</strong>. When it's gone, add its payment to the next smallest. Each payoff makes your payment bigger, like a snowball rolling downhill.</p>
+<h2 id="snowball-vs-avalanche">Snowball vs. avalanche</h2>
+<p>The <strong>avalanche</strong> method pays the <strong>highest interest rate</strong> first. It always costs the same or less interest. The snowball gives you quick wins, and for a lot of people that's what keeps them going. The calculator shows the real dollar difference for your debts, so you can pick with numbers instead of guessing. Want the full breakdown? Read <a href="../debt-snowball-vs-avalanche/">Debt Snowball vs. Avalanche: Which Pays Off Debt Faster?</a></p>
+<h2 id="tips">3 ways to reach your date faster</h2>
+<ul>
+<li><strong>Try a bigger extra payment.</strong> Change the extra amount above from $100 to $150 and watch the date move.</li>
+<li><strong>Stop new charges.</strong> The math only works if the balances stop growing.</li>
+<li><strong>Use "found" money.</strong> Tax refunds and three-paycheck months can knock out a whole debt. See <a href="../how-to-make-a-biweekly-budget/">how to use your 3-paycheck months</a>.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<h3>What if I can only pay the minimums?</h3>
+<p>Set the extra amount to 0. You'll see how long minimums alone take. Then try small amounts, like $20, to see how much time each one saves.</p>
+<h3>Does this include my mortgage?</h3>
+<p>Most people leave the mortgage out and focus on credit cards, personal loans, medical bills and car loans first.</p>
+</div>
+<aside class="product" data-reveal>
+<img src="../img/debt.jpg" alt="Debt Payoff Planner preview" width="800" height="600" loading="lazy">
+<div>
+<p class="pill">Spreadsheet template</p>
+<h3>Turn this plan into a monthly tracker</h3>
+<p>The Debt Payoff Planner tracks every payment, colors in your progress, and updates your debt-free date as you go. Excel and Google Sheets. Instant download.</p>
+<a class="btn" href="https://payhip.com/b/AXEU5">Get it for $7</a>
+</div>
+</aside>
+<section class="signup" id="newsletter" data-reveal>
+<div><h2>Get one debt-payoff tip every Tuesday.</h2><p>Short, practical and free. Written for people paying off debt on a tight budget.</p></div>
+<form action="https://app.kit.com/forms/10091417/subscriptions" method="post">
+<label class="sr" for="em">Email address</label>
+<input id="em" type="email" name="email_address" placeholder="Your email address" required>
+<button class="btn btn-dark" type="submit">Subscribe free</button>
+</form>
+</section>
+</article>
+</main>
+<footer><div class="wrap">
+<div><a class="logo" href="../"><span class="mark">$</span>SteadyDollar</a>
+<p>Simple money guides for people living paycheck to paycheck.<br>Educational content only, not financial advice.</p></div>
+<div class="flinks"><a href="../#guides">Free guides</a><a href="../#templates">Templates</a><a href="../about/">About</a><a href="../privacy/">Privacy &amp; disclaimer</a></div>
+</div><p class="wrap copy">&copy; 2026 SteadyDollar</p></footer>
+<script>
+(function(){
+var rows=document.getElementById('rows'),res=document.getElementById('res'),extra=document.getElementById('extra');
+var start=[["Credit card",4200,24.99,120],["Store card",850,29.99,35],["Car loan",9800,8.9,260],["Medical bill",600,0,50]];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function add(d){d=d||["",0,0,0];var tr=document.createElement('tr');
+tr.innerHTML='<td><input aria-label="Debt name" value="'+esc(d[0])+'"></td><td><input aria-label="Balance" type="number" min="0" step="0.01" inputmode="decimal" value="'+d[1]+'"></td><td><input aria-label="APR" type="number" min="0" step="0.01" inputmode="decimal" value="'+d[2]+'"></td><td><input aria-label="Minimum payment" type="number" min="0" step="0.01" inputmode="decimal" value="'+d[3]+'"></td><td><button class="x" type="button" aria-label="Remove debt">&times;</button></td>';
+tr.querySelector('.x').onclick=function(){tr.remove();calc()};rows.appendChild(tr)}
+function read(){var out=[];rows.querySelectorAll('tr').forEach(function(tr){var i=tr.querySelectorAll('input');var b=+i[1].value||0;if(b>0)out.push({n:i[0].value||'Debt',b:b,r:(+i[2].value||0)/1200,m:+i[3].value||0})});return out}
+function sim(debts,order){var d=debts.map(function(x){return{n:x.n,b:x.b,r:x.r,m:x.m}});d.sort(order);
+var budget=d.reduce(function(s,x){return s+x.m},0)+(+extra.value||0),month=0,interest=0,paid=[];
+while(d.some(function(x){return x.b>0.005})&&month<600){month++;
+d.forEach(function(x){if(x.b>0){var i=x.b*x.r;x.b+=i;interest+=i}});
+var left=budget;d.forEach(function(x){if(x.b>0){var p=Math.min(x.m,x.b);x.b-=p;left-=p}});
+d.forEach(function(x){if(x.b>0&&left>0){var p=Math.min(left,x.b);x.b-=p;left-=p}});
+d.forEach(function(x){if(x.b<=0.005&&paid.indexOf(x.n)<0){x.b=0;paid.push(x.n)}})}
+return{months:month,interest:interest,order:paid,stuck:month>=600}}
+function fmt(n){return'$'+Math.round(n).toLocaleString('en-US')}
+function date(m){var t=new Date();t.setMonth(t.getMonth()+m);return t.toLocaleDateString('en-US',{month:'long',year:'numeric'})}
+function box(t,r,win){if(r.stuck)return'<div class="box"><strong>'+t+'</strong><p>Payments don\'t cover the interest. Raise the extra amount.</p></div>';
+return'<div class="box'+(win?' win':'')+'"><strong>'+t+(win?' ✓ saves more':'')+'</strong><span class="big">'+date(r.months)+'</span>'+r.months+' months · '+fmt(r.interest)+' interest<ol>'+r.order.map(function(n){return'<li>'+esc(n)+'</li>'}).join('')+'</ol></div>'}
+function calc(){var d=read();if(!d.length){res.innerHTML='';return}
+var s=sim(d,function(a,b){return a.b-b.b}),a=sim(d,function(a,b){return b.r-a.r||a.b-b.b});
+var diff=s.interest-a.interest;res.innerHTML=box('Snowball (smallest first)',s,!s.stuck&&diff<=-1)+box('Avalanche (highest APR first)',a,!a.stuck&&diff>=1)+(Math.abs(diff)<1&&!s.stuck?'<p class="note" style="grid-column:1/-1">Same result both ways. Pick the order that keeps you motivated.</p>':'');
+if(window.gtag)gtag('event','calc_run')}
+start.forEach(add);document.getElementById('add').onclick=function(){add();};
+document.getElementById('calc').addEventListener('input',calc);calc();
+})();
+</script>
+<script>
+(function(){
+  var top=document.querySelector('.top');
+  addEventListener('scroll',function(){top.classList.toggle('scrolled',scrollY>10)},{passive:true});
+  var bar=document.querySelector('.progress');
+  if(bar){addEventListener('scroll',function(){var h=document.documentElement;bar.style.transform='scaleX('+(h.scrollTop/(h.scrollHeight-h.clientHeight))+')'},{passive:true});}
+  var els=document.querySelectorAll('[data-reveal]');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
