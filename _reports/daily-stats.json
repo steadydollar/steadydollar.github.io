@@ -20,5 +20,16 @@
     "pin_impressions_7d": 6,
     "pin_outbound_7d": 0,
     "kit_subs": 0
+  },
+  {
+    "date": "2026-11-24",
+    "yt_views": 324,
+    "yt_subs": 0,
+    "yt_videos": 12,
+    "per_video": {},
+    "pin_impressions_7d": 3,
+    "pin_outbound_7d": 0,
+    "kit_subs": null,
+    "note": "YT quota exceeded for per-video; Kit 401; runs 20-23.11 cut off"
   }
 ]
