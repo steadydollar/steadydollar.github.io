@@ -45,5 +45,16 @@
     "pin_outbound_7d": 0,
     "kit_subs": null,
     "note": "18h run; replaces 03:02 UTC entry (yt_views 324). Kit 401"
+  },
+  {
+    "date": "2026-11-25",
+    "yt_views": null,
+    "yt_subs": null,
+    "yt_videos": 14,
+    "per_video": {},
+    "pin_impressions_7d": 3,
+    "pin_outbound_7d": 0,
+    "kit_subs": null,
+    "note": "YouTube API quota exceeded at 19:15 UTC (no stats); Kit 401"
   }
 ]
