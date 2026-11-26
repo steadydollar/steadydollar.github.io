@@ -1,60 +1,87 @@
 [
-  {
-    "date": "2026-11-19",
-    "yt_views": 111,
-    "yt_subs": 0,
-    "yt_videos": 11,
-    "per_video": {
-      "HP7ArNqyZu8": 21,
-      "67tBlYb1wDU": 27,
-      "CBI5NDlsURU": 33,
-      "WSDk-Wx3t14": 13,
-      "OOSxS1dkjOQ": 9,
-      "XU7yVvNRxZE": 21,
-      "W6Nrd0GzVlk": 18,
-      "oQlzAYhFPvo": 1,
-      "EvmTU5D_wGM": 0,
-      "3mPw7mFKXrE": 0,
-      "utsBIG2OCPY": 1
-    },
-    "pin_impressions_7d": 6,
-    "pin_outbound_7d": 0,
-    "kit_subs": 0
+ {
+  "date": "2026-11-19",
+  "yt_views": 111,
+  "yt_subs": 0,
+  "yt_videos": 11,
+  "per_video": {
+   "HP7ArNqyZu8": 21,
+   "67tBlYb1wDU": 27,
+   "CBI5NDlsURU": 33,
+   "WSDk-Wx3t14": 13,
+   "OOSxS1dkjOQ": 9,
+   "XU7yVvNRxZE": 21,
+   "W6Nrd0GzVlk": 18,
+   "oQlzAYhFPvo": 1,
+   "EvmTU5D_wGM": 0,
+   "3mPw7mFKXrE": 0,
+   "utsBIG2OCPY": 1
   },
-  {
-    "date": "2026-11-24",
-    "yt_views": 437,
-    "yt_subs": 0,
-    "yt_videos": 13,
-    "per_video": {
-      "N9hHf_wAGR8": 113,
-      "f_lwisLQQgM": 178,
-      "HP7ArNqyZu8": 22,
-      "67tBlYb1wDU": 27,
-      "CBI5NDlsURU": 34,
-      "WSDk-Wx3t14": 12,
-      "OOSxS1dkjOQ": 9,
-      "XU7yVvNRxZE": 23,
-      "W6Nrd0GzVlk": 18,
-      "oQlzAYhFPvo": 1,
-      "EvmTU5D_wGM": 0,
-      "3mPw7mFKXrE": 0,
-      "utsBIG2OCPY": 3
-    },
-    "pin_impressions_7d": 4,
-    "pin_outbound_7d": 0,
-    "kit_subs": null,
-    "note": "18h run; replaces 03:02 UTC entry (yt_views 324). Kit 401"
+  "pin_impressions_7d": 6,
+  "pin_outbound_7d": 0,
+  "kit_subs": 0
+ },
+ {
+  "date": "2026-11-24",
+  "yt_views": 437,
+  "yt_subs": 0,
+  "yt_videos": 13,
+  "per_video": {
+   "N9hHf_wAGR8": 113,
+   "f_lwisLQQgM": 178,
+   "HP7ArNqyZu8": 22,
+   "67tBlYb1wDU": 27,
+   "CBI5NDlsURU": 34,
+   "WSDk-Wx3t14": 12,
+   "OOSxS1dkjOQ": 9,
+   "XU7yVvNRxZE": 23,
+   "W6Nrd0GzVlk": 18,
+   "oQlzAYhFPvo": 1,
+   "EvmTU5D_wGM": 0,
+   "3mPw7mFKXrE": 0,
+   "utsBIG2OCPY": 3
   },
-  {
-    "date": "2026-11-25",
-    "yt_views": null,
-    "yt_subs": null,
-    "yt_videos": 14,
-    "per_video": {},
-    "pin_impressions_7d": 3,
-    "pin_outbound_7d": 0,
-    "kit_subs": null,
-    "note": "YouTube API quota exceeded at 19:15 UTC (no stats); Kit 401"
-  }
+  "pin_impressions_7d": 4,
+  "pin_outbound_7d": 0,
+  "kit_subs": null,
+  "note": "18h run; replaces 03:02 UTC entry (yt_views 324). Kit 401"
+ },
+ {
+  "date": "2026-11-25",
+  "yt_views": null,
+  "yt_subs": null,
+  "yt_videos": 14,
+  "per_video": {},
+  "pin_impressions_7d": 3,
+  "pin_outbound_7d": 0,
+  "kit_subs": null,
+  "note": "YouTube API quota exceeded at 19:15 UTC (no stats); Kit 401"
+ },
+ {
+  "date": "2026-11-26",
+  "yt_views": 470,
+  "yt_subs": 0,
+  "yt_videos": 15,
+  "per_video": {
+   "8oYA_W0BkUU": 8,
+   "qmoI9LXSp-U": 13,
+   "N9hHf_wAGR8": 122,
+   "f_lwisLQQgM": 178,
+   "HP7ArNqyZu8": 22,
+   "67tBlYb1wDU": 27,
+   "CBI5NDlsURU": 34,
+   "WSDk-Wx3t14": 12,
+   "OOSxS1dkjOQ": 9,
+   "XU7yVvNRxZE": 23,
+   "W6Nrd0GzVlk": 18,
+   "oQlzAYhFPvo": 1,
+   "EvmTU5D_wGM": 0,
+   "3mPw7mFKXrE": 0,
+   "utsBIG2OCPY": 3
+  },
+  "pin_impressions_7d": 5,
+  "pin_outbound_7d": 0,
+  "kit_subs": null,
+  "note": "Kit 401"
+ }
 ]
